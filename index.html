@@ -20,25 +20,38 @@
 <a id="welcome-to-Lulu's Homepage" class="anchor" href="#welcome-to-Lulu's Homepage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to Lulu's Homepage.</h3>
 <img src="./img/lucky.jpg" width="600" height="600">
 
-<h1>Google Map Test</h1>
+      <h2>Google Map Test</h2>
 
-<div id="map" style="width:400px;height:400px;background:blue"></div>
+      <div id="map" style="width:400px;height:400px;background:blue"></div>
 
-<script>
-function myMap() {
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {
-    center: new google.maps.LatLng(30.9, 121.94), zoom: 12
-  };
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-}
-</script>
+      <script>
+      function myMap() {
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+          center: new google.maps.LatLng(30.9, 121.94), zoom: 12
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+      }
+      </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVaeAw6bN-Y91-VxazGRlklgKZ0NTqaK0&callback=myMap"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVaeAw6bN-Y91-VxazGRlklgKZ0NTqaK0&callback=myMap"></script>
 
-<button type="button"
-onclick="document.getElementById('date').innerHTML = Date()">
-Click me to display Date and Time.</button>
-<p id="date"></p>
+      <h2>Baidu Map</h2>
+
+      <div id="baidumap" style="width:400px;height:400px;background:blue"></div>
+
+      <script>
+      function BaiduMap() {
+        var bdmap = new BMap.Map("baidumap");
+        bdmap.centerAndZoom(new BMap.Point(121.94, 30.9), 12);
+        // enable mouse scroll
+        bdmap.enableScrollWheelZoom();
+        bdmap.addEventListener("click",showInfo);
+        function showInfo(e){
+            alert("longitude："+e.point.lng+",latitude: "+e.point.lat);
+        }  
+      }
+      </script>
+      <script src="http://api.map.baidu.com/api?v=1.5&ak=u5RFvgUTdOSVYhrW6uIRRdAtklwEkM44&callback=BaiduMap"></script>
 
 <p> To be continued ...<a href="https://guides.github.com/features/mastering-markdown/"></a>
